@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useMemo } from "react";
-import "../OrderLists/OrderListsTableStyles.css";
+import "./orderListsTableStyles.css";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
