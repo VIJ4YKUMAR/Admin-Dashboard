@@ -10,7 +10,7 @@ import SingleListMenu from "../SingleListMenu/SingleListMenu";
 import { hasChildren } from "../../utils";
 import "../SideNavbar/sideNavbar.css";
 
-import { dashboardMenuItems, pagesMenuItems } from "../MenuItems";
+import { dashboardMenuItems, pagesMenuItems } from "../menuItems.js";
 import { Typography } from "@mui/material";
 
 const SideBarMenuItem = ({ item }) => {
