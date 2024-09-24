@@ -1,0 +1,87 @@
+body {
+    font-family: 'Inter' !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter' !important;
+  }
+  
+  p, span, div, a, li, dt, dd {
+    font-family: 'Inter' !important;
+  }
+  
+  ul, ol {
+    font-family: 'Inter', !important;
+  }
+  
+  blockquote, pre {
+    font-family: 'Inter' !important;
+  }
+  
+  
+  .text-underline {
+    text-decoration: underline;
+  }
+  
+  .no-underline {
+    text-decoration: none;
+  }
+  
+  .pointer {
+    cursor: pointer;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  .alert-container {
+    margin-top: 100px !important;
+    z-index: 10010 !important;
+  }
+  
+  .makeStyles-right-6 {
+    align-items: unset !important;
+  }
+  
+  
+  
+  .success {
+    background-color: #EDF7ED !important;
+    border: 1px solid #1E4620 !important;
+  }
+  
+  .error {
+    background-color: #FDEDED !important;
+    border: 1px solid #E43232;
+  }
+  
+  .success-text {
+    color:#1E4620;
+  }
+  
+  .error-text {
+    color:#E43232;
+  }
+  
+  .grecaptcha-badge {
+    visibility: hidden;
+  }
+  
+  .SnackbarItem-action-22{
+    position: fixed;
+    right: 0;
+  }
+  
+  .sticky-section {
+    position: sticky;
+    top: "100px";
+  }
+  
+  .link-max-content {
+    width: max-content;
+  }
+  
+  .align-center {
+    text-align: center;
+  }

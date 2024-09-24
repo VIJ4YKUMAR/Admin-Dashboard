@@ -1,0 +1,27 @@
+#long-button {
+  padding: 0;
+}
+
+.MuiTableCell-root {
+  font-family: "Inter";
+}
+
+.table-title {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignLeft.MuiTableCell-sizeMedium.css-1y9bscc-MuiTableCell-root {
+  /* padding: 0 50px 0 50px; */
+  width: 250px;
+}
+
+.css-r1xxss-MuiTableCell-root {
+  width: 250px;
+}
+
+.css-5v8hh5-MuiTableCell-root {
+  width: 200px;
+}

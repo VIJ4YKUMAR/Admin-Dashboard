@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "commonjs",
+		"jsx": "react",
+		"baseUrl": "./",
+		"paths": {
+			"@mui/*": [
+				"node_modules/@mui/*"
+			]
+		}
+	},
+	"include": [
+		"src/**/*"
+	]
+}
