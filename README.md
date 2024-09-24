@@ -55,3 +55,10 @@ Make sure you have the following installed:
 
 Configuration:
 You can customize the Vite configuration in the vite.config.js file. This includes settings for plugins, server options, and build options.
+
+Design Decisions:
+  The given figma design is a copy of the snowUI's dashboard template, so majority of the icons were not available in mui, I tried as much as possible to match the       
+  icons.
+
+Challenges faced:
+  The main challenge was initially I decided to start with react with typescript using create-react-app and started setting up the project and making the necessary configurations, But I couldn't be able to proceed with typescript, because of my mac os version(catalina). I was facing package incompatibilities with the homebrew package manager in my system, so I decided to proceed with Vite+React with jsx. Also the designs like the bars in the bar chart, the space between the section in pie chart were difficult to replicate perfectly, I have tried to implement them as close as possible with the design.
