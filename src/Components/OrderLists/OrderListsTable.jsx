@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useMemo } from "react";
-import "./orderListsTableStyles.css";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -35,7 +34,7 @@ import Male08 from "../../assets/static/Male08.webp";
 import SearchBar from "../SearchBar/SearchBar";
 import { Typography } from "@mui/material";
 
-
+import "../OrderLists/orderListsTableStyles.css";
 
 const createOrderData = (orderId, userPhoto, userName, projectName, address, date, status) => {
 	return {
