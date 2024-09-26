@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useMemo } from "react";
 
 import Stack from "@mui/material/Stack";
 
@@ -11,7 +10,7 @@ import { hasChildren } from "../../utils";
 import "../SideNavbar/sideNavbar.css";
 
 import { dashboardMenuItems, pagesMenuItems } from "../menuItems.js";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 const SideBarMenuItem = ({ item }) => {
   const Component = hasChildren(item) ? CollapsibleMultiList : SingleListMenu;
@@ -20,18 +19,20 @@ const SideBarMenuItem = ({ item }) => {
 
 
 const SideNavbar = () => {
+  const theme = useTheme();
+
   return (
     <Stack className="side-bar" gap={4}>
       <UserCard userImage={ByeWind} userName="ByeWind" />
       <Stack>
         <Stack gap={1}>
-          <Stack color="#1C1C1C66" direction="row" gap={2} justifyContent="space-around">
-            <Typography>Favorites</Typography>
-            <Typography>Recently</Typography>
+          <Stack direction="row" gap={2} justifyContent="space-around">
+            <Typography color="text.primary">Favorites</Typography>
+            <Typography color="text.primary">Recently</Typography>
           </Stack>
-          <ul style={{ textAlign: "left", color: "#1C1C1C66", padding: 20, margin: 0 }}>
-            <li><Typography fontSize="14px" color="textPrimary">Overview</Typography></li>
-            <li><Typography fontSize="14px" color="textPrimary">Projects</Typography></li>
+          <ul style={{ textAlign: "left", color: theme.palette.text.primary, padding: 20, margin: 0 }}>
+            <li><Typography fontSize="14px" color="text.primary">Overview</Typography></li>
+            <li><Typography fontSize="14px" color="text.primary">Projects</Typography></li>
           </ul>
         </Stack>
       </Stack>

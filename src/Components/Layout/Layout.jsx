@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ResponsiveAppBar from '../ApplicationBar/ApplicationBar';
 import SideNavbar from '../SideNavbar/SideNavbar';
 import SideInfobar from '../SideInfobar/SideInfobar';
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, useTheme } from '@mui/material';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, themeRef }) => {
+  const theme = useTheme();
+
   return (
     <Box sx={{ display: 'flex' }}>
       <Box
@@ -24,10 +26,12 @@ const Layout = ({ children }) => {
       </Box>
 
       <Box sx={{ flexGrow: 1 }}>
-        <Box sx={{ position: 'fixed', width: '100%', zIndex: 1 }}>
-          <ResponsiveAppBar />
+        <Box component="header" sx={{ position: 'fixed', width: '100%', zIndex: 1 }}>
+          <ResponsiveAppBar themeRef={themeRef} />
         </Box>
-        <Box sx={{ padding: '10px 60px 30px 0', marginTop: '30px' }}>
+        <Box component="main" sx={{
+          padding: '10px 60px 30px 0', marginTop: '30px', display: "flex", justifyContent: "center", alignItems: "center"
+        }}>
           {children}
         </Box>
       </Box>

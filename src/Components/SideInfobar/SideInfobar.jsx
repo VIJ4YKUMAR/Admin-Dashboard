@@ -10,15 +10,15 @@ const SideInfobar = () => {
   return (
     <Stack gap={2} justifyContent="center">
       <Stack textAlign="left" gap={2}>
-        <Typography>Notifications</Typography>
+        <Typography color="text.primary">Notifications</Typography>
         <NotificationList />
       </Stack>
       <Stack textAlign="left" gap={2}>
-        <Typography>Activities</Typography>
+        <Typography color="text.primary">Activities</Typography>
         <ActivityList />
       </Stack>
       <Stack textAlign="left" gap={2}>
-        <Typography>Contacts</Typography>
+        <Typography color="text.primary">Contacts</Typography>
         <ContactsList />
       </Stack>
     </Stack>

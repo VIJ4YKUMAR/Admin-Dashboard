@@ -12,26 +12,26 @@ import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineR
 
 export const dashboardMenuItems = [
   {
-    icon: <PieChartOutlineOutlinedIcon />,
+    icon: <PieChartOutlineOutlinedIcon sx={{ color: "text.primary" }} />,
     title: "Default",
   },
   {
-    icon: <LocalMallOutlinedIcon />,
+    icon: <LocalMallOutlinedIcon sx={{ color: "text.primary" }} />,
     title: "eCommerce",
   },
   {
-    icon: <FolderOpenOutlinedIcon />,
+    icon: <FolderOpenOutlinedIcon sx={{ color: "text.primary" }} />,
     title: "Projects",
   },
   {
-    icon: <ImportContactsOutlinedIcon />,
+    icon: <ImportContactsOutlinedIcon sx={{ color: "text.primary" }} />,
     title: "Online Courses",
   },
 ];
 
 export const pagesMenuItems = [
   {
-    icon: <PortraitOutlinedIcon />,
+    icon: <PortraitOutlinedIcon sx={{ color: "text.primary" }} />,
     title: "User Profile",
     items: [
       {
@@ -52,19 +52,19 @@ export const pagesMenuItems = [
     ],
   },
   {
-    icon: <ContactEmergencyOutlinedIcon />,
+    icon: <ContactEmergencyOutlinedIcon sx={{ color: "text.primary" }} />,
     title: "Account",
   },
   {
-    icon: <GroupsOutlinedIcon />,
+    icon: <GroupsOutlinedIcon sx={{ color: "text.primary" }} />,
     title: "Corporate",
   },
   {
-    icon: <ArticleOutlinedIcon />,
+    icon: <ArticleOutlinedIcon sx={{ color: "text.primary" }} />,
     title: "Blog",
   },
   {
-    icon: <ChatBubbleOutlineRoundedIcon />,
+    icon: <ChatBubbleOutlineRoundedIcon sx={{ color: "text.primary" }} />,
     title: "Social",
   },
 ];

@@ -21,27 +21,27 @@ const TopSellingProducts = () => {
   ];
 
   return (
-    <Box component={Paper} p={3} bgcolor="#F7F9FB" boxShadow="none" textAlign="left">
-      <Typography variant="h6" fontWeight="bold" gutterBottom>
+    <Box component={Paper} p={3} bgcolor="background.secondary" boxShadow="none" textAlign="left">
+      <Typography color="text.primary" variant="h6" fontWeight="bold" gutterBottom>
         Top Selling Products
       </Typography>
       <TableContainer>
         <Table aria-label="top selling products table">
           <TableHead>
             <TableRow>
-              <TableCell sx={{ color: "#1C1C1C66" }}>Name</TableCell>
-              <TableCell sx={{ color: "#1C1C1C66" }}>Price</TableCell>
-              <TableCell sx={{ color: "#1C1C1C66" }}>Quantity</TableCell>
-              <TableCell sx={{ color: "#1C1C1C66" }}>Amount</TableCell>
+              <TableCell sx={{ color: "text.primary" }}>Name</TableCell>
+              <TableCell sx={{ color: "text.primary" }}>Price</TableCell>
+              <TableCell sx={{ color: "text.primary" }}>Quantity</TableCell>
+              <TableCell sx={{ color: "text.primary" }}>Amount</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow sx={{ "& td": { border: 0 } }} key={row.name}>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>${row.price.toFixed(2)}</TableCell>
-                <TableCell>{row.quantity}</TableCell>
-                <TableCell>${row.amount.toFixed(2)}</TableCell>
+                <TableCell sx={{ color: "text.primary" }}>{row.name}</TableCell>
+                <TableCell sx={{ color: "text.primary" }}>${row.price.toFixed(2)}</TableCell>
+                <TableCell sx={{ color: "text.primary" }}>{row.quantity}</TableCell>
+                <TableCell sx={{ color: "text.primary" }}>${row.amount.toFixed(2)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

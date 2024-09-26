@@ -32,7 +32,7 @@ import Female15 from "../../assets/static/Female15.webp";
 import Male06 from "../../assets/static/Male06.webp";
 import Male08 from "../../assets/static/Male08.webp";
 import SearchBar from "../SearchBar/SearchBar";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 import "../OrderLists/orderListsTableStyles.css";
 
@@ -133,6 +133,7 @@ const tableHeadCells = [
 ];
 
 const OrderTableHead = ({ onSelectAll, order, orderBy, rowsSelected, rowCount, onSort }) => {
+	const theme = useTheme();
 
 	const sortHandler = (property) => (event) => {
 		onSort(event, property);
@@ -158,7 +159,7 @@ const OrderTableHead = ({ onSelectAll, order, orderBy, rowsSelected, rowCount, o
 					<TableCell
 						key={headCell.id}
 						sx={{
-							color: "#1C1C1C66",
+							color: theme.palette.text.primary,
 						}}
 					>
 						{headCell.label}
@@ -170,6 +171,7 @@ const OrderTableHead = ({ onSelectAll, order, orderBy, rowsSelected, rowCount, o
 }
 
 const TableToolBar = () => {
+	const theme = useTheme();
 	return (
 		<Toolbar
 			sx={[
@@ -178,13 +180,13 @@ const TableToolBar = () => {
 					pr: { xs: 1, sm: 1 },
 				},
 				{
-					bgcolor: "#F7F9FB",
+					bgcolor: theme.palette.background.secondary,
 					borderRadius: "10px",
 					paddingBottom: "10px"
 				}
 			]}
 		>
-			<Stack color={"#F7F9FB"} direction={"row"} width="100%" justifyContent={"space-between"} alignItems={"flex-end"}>
+			<Stack direction={"row"} width="100%" justifyContent={"space-between"} alignItems={"flex-end"}>
 				<Stack direction={"row"} gap={4}>
 					<AddIcon color="action" />
 					<FilterListIcon color="action" />
@@ -255,16 +257,16 @@ const OrderTable = () => {
 
 	const visibleRows = useMemo(() => {
 		const startIndex = page * rowsPerPage;
-		const endIndex = Math.min(startIndex + rowsPerPage, tableRows.length); // Ensure we don't exceed the total number of rows
+		const endIndex = Math.min(startIndex + rowsPerPage, tableRows.length);
 		return tableRows
 			.slice(startIndex, endIndex)
-			.sort(getComparator(order, orderBy)); // Sort and slice in one step
+			.sort(getComparator(order, orderBy));
 	}, [order, orderBy, page, rowsPerPage, tableRows]);
 
 	return (
 		<Box>
 			<Paper sx={{ mb: 2, boxShadow: 0 }}>
-				<Typography className="table-title">Order List</Typography>
+				<Typography color="text.primary" className="table-title">Order List</Typography>
 				<TableToolBar />
 				<TableContainer>
 					<Table>
@@ -290,7 +292,6 @@ const OrderTable = () => {
 										selected={isItemSelected}
 										sx={{
 											cursor: 'pointer',
-											bgcolor: isItemSelected ? "#F7F9FB" : "#ffffff"
 										}}
 									>
 										<TableCell padding="checkbox">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, List, ListItem, ListItemAvatar, ListItemText, Typography, Stack } from '@mui/material';
+import { Avatar, Typography, Stack } from '@mui/material';
 
 import MaleIcon from "../../assets/static/MaleIcon.webp";
 import FemaleIcon from "../../assets/static/FemaleIcon.webp";
@@ -44,8 +44,8 @@ const ActivityList = () => {
           <Stack key={activity.avatar} direction={'row'} spacing={1}>
             <img src={activity.avatar} width={30} height={30} />
             <Stack spacing={1} sx={{ textAlign: "left" }}>
-              <Typography>{activity.text}</Typography>
-              <Typography className='notification-status' style={{ color: "#1C1C1C66", fontSize: "12px", margin: "0px" }}>{activity.timestamp}</Typography>
+              <Typography color="text.primary">{activity.text}</Typography>
+              <Typography color="text.secondary" className='notification-status' style={{ fontSize: "12px", margin: "0px" }}>{activity.timestamp}</Typography>
             </Stack>
           </Stack>
         ))

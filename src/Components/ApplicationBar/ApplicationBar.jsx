@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useImperativeHandle, forwardRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
@@ -21,6 +21,7 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import HistoryIcon from '@mui/icons-material/History';
 import Stack from '@mui/material/Stack';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
+import { useTheme } from '@mui/material';
 import SearchBar from '../SearchBar/SearchBar';
 
 import "../ApplicationBar/applicationbar.css";
@@ -28,20 +29,32 @@ import "../ApplicationBar/applicationbar.css";
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = ({ themeRef }) => {
+  const theme = useTheme();
+
+  const [mode, setMode] = useState("dark");
+
+  const toggleMode = useCallback(() => {
+    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+  }, []);
+
+  useImperativeHandle(themeRef, () => ({
+    mode,
+  }), [mode]);
+
   return (
-    <AppBar sx={{ boxShadow: "none" }} className="appbar-container">
+    <AppBar sx={{ background: theme.palette.background.default }} sx={{ boxShadow: "none" }} className="appbar-container">
       <Container maxWidth="xl">
-        <Toolbar className="appbar" disableGutters>
+        <Toolbar sx={{ background: theme.palette.background.default }} className="appbar" disableGutters>
           <Stack direction="row" gap={3} paddingLeft={2}>
             <Link>
-              <ViewSidebarOutlinedIcon />
+              <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
             </Link>
             <Link>
-              <StarBorderOutlinedIcon />
+              <StarBorderOutlinedIcon style={{ color: theme.palette.text.primary }} />
             </Link>
             <Breadcrumbs>
-              <Link underline="none" href="/">
+              <Link style={{ color: theme.palette.text.primary }} underline="none" href="/">
                 Dashboards
               </Link>
               <Typography color="textPrimary">Defaults</Typography>
@@ -50,16 +63,16 @@ const ResponsiveAppBar = () => {
           <Stack direction="row" gap={3} paddingRight={18}>
             <SearchBar inNavbar />
             <Link>
-              <LightModeIcon />
+              <LightModeIcon style={{ color: theme.palette.text.primary }} onClick={toggleMode} />
             </Link>
             <Link>
-              <HistoryIcon />
+              <HistoryIcon style={{ color: theme.palette.text.primary }} />
             </Link>
             <Link>
-              <NotificationsNoneOutlinedIcon />
+              <NotificationsNoneOutlinedIcon style={{ color: theme.palette.text.primary }} />
             </Link>
             <Link>
-              <ViewSidebarOutlinedIcon />
+              <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
             </Link>
           </Stack>
         </Toolbar>

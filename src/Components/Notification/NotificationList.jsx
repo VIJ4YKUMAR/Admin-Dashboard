@@ -35,8 +35,8 @@ const NotificationCard = ({ item }) => {
 		<Stack direction={'row'} spacing={1} maxWidth={250}>
 			<img src={item.icon} width={30} height={30} />
 			<Stack spacing={1} sx={{ textAlign: "left" }}>
-				<Typography>{item.text}</Typography>
-				<Typography className='notification-status' style={{ color: "#1C1C1C66", fontSize: "12px", margin: "0px" }}>{item.timestamp}</Typography>
+				<Typography color="text.primary">{item.text}</Typography>
+				<Typography color="text.secondary" className='notification-status' style={{ fontSize: "12px", margin: "0px" }}>{item.timestamp}</Typography>
 			</Stack>
 		</Stack>
 	);

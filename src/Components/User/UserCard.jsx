@@ -7,7 +7,7 @@ const UserCard = ({ userName, userImage, isTable }) => {
 	return (
 		<Stack direction={'row'} spacing={1}>
 			<img src={userImage} alt='user photo' width={isTable ? 24 : 30} height={isTable ? 24 : 30} />
-			<Typography className="u-name">{userName}</Typography>
+			<Typography color="text.primary" className="u-name">{userName}</Typography>
 		</Stack>
 	)
 };

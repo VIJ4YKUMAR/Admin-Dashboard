@@ -2,7 +2,7 @@ import React from "react";
 
 import InfoCards from "../InfoCards/InfoCards";
 import Grid from "@mui/material/Grid";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useTheme } from "@mui/material";
 
 import { Link } from 'react-router-dom';
 
@@ -38,9 +38,10 @@ const ecommerceData = [
 ]
 
 const Ecommerce = () => {
+  const theme = useTheme();
   return (
     <Stack textAlign="left" gap={4} sx={{ marginBottom: "30px" }}>
-      <Typography fontWeight="600">eCommerce</Typography>
+      <Typography color="text.primary" fontWeight="600">eCommerce</Typography>
       < Grid
         maxWidth={600}
         container

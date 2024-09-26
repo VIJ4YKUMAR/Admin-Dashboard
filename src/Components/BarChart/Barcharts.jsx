@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import ApexCharts from "apexcharts";
+import { useTheme } from "@mui/material";
 
 import "../BarChart/barchart.css";
 
 const Barchart = () => {
+  const theme = useTheme();
 
   const chartRef = useRef(null);
 
@@ -33,6 +35,10 @@ const Barchart = () => {
         width: 550,
         stacked: true,
         stackedType: "100%",
+        toolbar: {
+          show: false
+        },
+        background: "transparent"
       },
       responsive: [{
         breakpoint: 480,
@@ -43,33 +49,41 @@ const Barchart = () => {
       plotOptions: {
         bar: {
           horizontal: false,
-          borderRadius: 10,
+          borderRadius: 7,
           borderRadiusApplication: "end",
           borderRadiusWhenStacked: "last",
+          columnWidth: "30%"
         },
       },
       colors: seriesData.map(series => colorMapping[series.name]),
       xaxis: {
-        title: {
-          text: "Months"
-        },
         categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
       },
       yaxis: {
-        title: {
-          text: "Revenue",
-        },
         labels: {
           formatter: function (value) {
             return value + "M";
           },
           style: {
-            colors: ['#000'],
+            colors: [theme.palette.text.primary],
           },
         },
         tickAmount: 7,
         min: 0,
         max: 70,
+      },
+      title: {
+        text: "Projections vs Actuals",
+        align: "left"
+      },
+      theme: {
+        mode: theme.palette.mode,
+      },
+      tooltip: {
+        theme: theme.palette.mode,
+      },
+      legend: {
+        show: false,
       },
       fill: {
         opacity: 1
@@ -84,7 +98,7 @@ const Barchart = () => {
   }, []);
 
   return (
-    <div ref={chartRef} id="barchart"></div>
+    <div style={{ background: theme.palette.background.secondary }} ref={chartRef} id="barchart"></div>
   );
 };
 

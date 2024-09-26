@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import ApexCharts from "apexcharts";
+import { useTheme } from "@mui/material";
 import "../Linechart/linecharts.css";
 
 const Linechart = () => {
   const chartRef = useRef(null);
+  const theme = useTheme();
 
   const colorMapping = {
     "Current Week $58,211": "#A8C5DA",
@@ -32,7 +34,12 @@ const Linechart = () => {
         },
         zoom: {
           enabled: false
-        }
+        },
+        background: "transparent",
+      },
+      legend: {
+        show: true,
+        posiion: "top",
       },
       forecastDataPoints: {
         count: 2,
@@ -56,6 +63,12 @@ const Linechart = () => {
         min: 0,
         max: 70,
       },
+      theme: {
+        mode: theme.palette.mode,
+      },
+      tooltip: {
+        theme: theme.palette.mode,
+      },
       title: {
         text: "Revenue",
         align: "left",
@@ -64,9 +77,6 @@ const Linechart = () => {
           fontWeight: "600",
         },
       },
-      legend: {
-        position: "top"
-      }
     };
 
     const chart = new ApexCharts(chartRef.current, data);
@@ -77,7 +87,7 @@ const Linechart = () => {
     };
   }, []);
 
-  return <div ref={chartRef} id="linechart"></div>;
+  return <div style={{ background: theme.palette.background.secondary }} ref={chartRef} id="linechart"></div>;
 };
 
 export default Linechart;

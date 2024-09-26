@@ -2,7 +2,7 @@ import React from "react";
 import Stack from "@mui/material/Stack";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import "../Geographies/geography.css";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 const revenueData = [
   {
@@ -28,11 +28,12 @@ const revenueData = [
 ];
 
 const ProgressBar = ({ item }) => {
+
   return (
     <Stack width={160}>
       <Stack direction="row" justifyContent="space-between">
-        <Typography>{item.place}</Typography>
-        <Typography>{item.revenue}K</Typography>
+        <Typography color="text.primary">{item.place}</Typography>
+        <Typography color="text.primary">{item.revenue}K</Typography>
       </Stack>
       <progress className="progress-bar" value={item.value} max="100"></progress>
     </Stack>
@@ -40,9 +41,11 @@ const ProgressBar = ({ item }) => {
 };
 
 const RevenueMap = () => {
+  const theme = useTheme();
+
   return (
-    <Stack className="revenue-map" textAlign="left" gap={3}>
-      <Typography fontSize="14px" fontWeight="600" sx={{ paddingLeft: "15px" }}>Revenue by Location</Typography>
+    <Stack className="revenue-map" sx={{ background: theme.palette.background.secondary }} textAlign="left" gap={3}>
+      <Typography fontSize="14px" fontWeight="600" color="text.primary" sx={{ paddingLeft: "15px" }}>Revenue by Location</Typography>
       <ComposableMap>
         <Geographies fill="#c0ddf2" geography="/features.json">
           {({ geographies }) =>
