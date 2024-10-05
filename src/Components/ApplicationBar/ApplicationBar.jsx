@@ -22,7 +22,11 @@ import HistoryIcon from '@mui/icons-material/History';
 import Stack from '@mui/material/Stack';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { useTheme } from '@mui/material';
+import Drawer from '@mui/material/Drawer';
 import SearchBar from '../SearchBar/SearchBar';
+import SideNavbar from '../SideNavbar/SideNavbar';
+import SideInfobar from '../SideInfobar/SideInfobar';
+import useWindowSize from '../../hooks/useWindowSize';
 
 import "../ApplicationBar/applicationbar.css";
 
@@ -31,12 +35,34 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = ({ themeRef }) => {
   const theme = useTheme();
+  const size = useWindowSize();
 
   const [mode, setMode] = useState("dark");
+
+  const [navOpen, setNavOpen] = React.useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
+
+  const toggleNavDrawer = (newOpen) => () => {
+    if (size.width <= 1200) {
+      setNavOpen(newOpen);
+    }
+  };
 
   const toggleMode = useCallback(() => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   }, []);
+
+  const toggleInfoDrawer = (newOpen) => () => {
+    if (size.width <= 1200) {
+      setInfoOpen(newOpen);
+    }
+  };
+
+  const handleLinkClick = (event) => {
+    if (size.width > 1200) {
+      event.preventDefault();
+    }
+  };
 
   useImperativeHandle(themeRef, () => ({
     mode,
@@ -44,12 +70,15 @@ const ResponsiveAppBar = ({ themeRef }) => {
 
   return (
     <AppBar sx={{ background: theme.palette.background.default }} sx={{ boxShadow: "none" }} className="appbar-container">
-      <Container maxWidth="xl">
-        <Toolbar sx={{ background: theme.palette.background.default }} className="appbar" disableGutters>
+      <Toolbar sx={{ background: theme.palette.background.default }} className="appbar" disableGutters>
+        <Stack direction="row">
           <Stack direction="row" gap={3} paddingLeft={2}>
-            <Link>
+            <Link onClick={(event) => { handleLinkClick(event); toggleNavDrawer(true)(); }}>
               <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
             </Link>
+            <Drawer anchor="left" open={navOpen} onClose={toggleNavDrawer(false)}>
+              <SideNavbar />
+            </Drawer>
             <Link>
               <StarBorderOutlinedIcon style={{ color: theme.palette.text.primary }} />
             </Link>
@@ -71,13 +100,16 @@ const ResponsiveAppBar = ({ themeRef }) => {
             <Link>
               <NotificationsNoneOutlinedIcon style={{ color: theme.palette.text.primary }} />
             </Link>
-            <Link>
+            <Link onClick={(event) => { handleLinkClick(event); toggleInfoDrawer(true)(); }}>
               <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
             </Link>
+            <Drawer anchor="right" open={infoOpen} onClose={toggleInfoDrawer(false)}>
+              <SideInfobar />
+            </Drawer>
           </Stack>
-        </Toolbar>
-      </Container>
-    </AppBar>
+        </Stack>
+      </Toolbar>
+    </AppBar >
   );
 };
 

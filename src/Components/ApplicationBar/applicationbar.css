@@ -1,11 +1,13 @@
 .appbar {
   gap: 30px;
-  justify-content: space-between;
-  background-color: white;
+  justify-content: center;
+  background-color: none;
+  background: none;
   box-shadow: none;
 }
 
 .appbar-container {
+  width: "66%";
   box-shadow: none; 
   border-bottom: 1px solid rgb(208, 207, 207);
 }

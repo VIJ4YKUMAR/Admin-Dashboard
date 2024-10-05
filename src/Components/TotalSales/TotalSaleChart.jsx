@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ApexCharts from "apexcharts";
 import "../TotalSales/totalSaleChart.css";
-import { List, ListItem, ListItemText, ListItemIcon, Typography, Stack, useTheme } from '@mui/material';
+import { List, ListItem, ListItemText, Typography, Stack, useTheme } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
 
 const salesData = [
@@ -15,10 +15,8 @@ const SalesList = () => {
   return (
     <List>
       {salesData.map((item, index) => (
-        <ListItem key={index} sx={{ padding: "5px 30px" }}>
-          <ListItemIcon>
-            <CircleIcon sx={{ fontSize: "10px" }} style={{ color: item.color }} />
-          </ListItemIcon>
+        <ListItem key={index} sx={{ padding: "5px 30px", gap: "5px" }}>
+          <CircleIcon sx={{ fontSize: "10px" }} style={{ color: item.color }} />
           <ListItemText sx={{ color: "text.primary" }} primary={item.name} />
           <Typography color="text.primary" variant="body2" fontWeight="bold">
             {item.value}
@@ -47,7 +45,7 @@ const TotalSaleChart = () => {
         breakpoint: 480,
         options: {
           chart: {
-            width: 200
+            width: "100%"
           },
           legend: {
             position: 'bottom'

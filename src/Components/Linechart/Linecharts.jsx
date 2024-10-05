@@ -26,8 +26,8 @@ const Linechart = () => {
   useEffect(() => {
     const data = {
       chart: {
-        height: 350,
-        width: 800,
+        height: "100%",
+        width: "100%",
         type: "line",
         toolbar: {
           show: false
@@ -59,9 +59,9 @@ const Linechart = () => {
             return value + "M";
           },
         },
-        tickAmount: 7,
+        tickAmount: 3,
         min: 0,
-        max: 70,
+        max: 30,
       },
       theme: {
         mode: theme.palette.mode,

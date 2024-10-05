@@ -21,7 +21,7 @@ const TopSellingProducts = () => {
   ];
 
   return (
-    <Box component={Paper} p={3} bgcolor="background.secondary" boxShadow="none" textAlign="left">
+    <Box component={Paper} p={2} bgcolor="background.secondary" boxShadow="none" textAlign="left">
       <Typography color="text.primary" variant="h6" fontWeight="bold" gutterBottom>
         Top Selling Products
       </Typography>

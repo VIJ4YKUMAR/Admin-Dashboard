@@ -23,7 +23,7 @@ const Barchart = () => {
       },
       {
         name: "Actuals",
-        data: [21, 27, 22, 29, 19, 27]
+        data: [5, 5, 5, 5, 5, 5]
       }
     ];
 
@@ -31,8 +31,8 @@ const Barchart = () => {
       series: seriesData,
       chart: {
         type: "bar",
-        height: 300,
-        width: 550,
+        height: "78%",
+        width: "100%",
         stacked: true,
         stackedType: "100%",
         toolbar: {
@@ -49,7 +49,7 @@ const Barchart = () => {
       plotOptions: {
         bar: {
           horizontal: false,
-          borderRadius: 7,
+          borderRadius: 3,
           borderRadiusApplication: "end",
           borderRadiusWhenStacked: "last",
           columnWidth: "30%"
@@ -68,9 +68,9 @@ const Barchart = () => {
             colors: [theme.palette.text.primary],
           },
         },
-        tickAmount: 7,
+        tickAmount: 3,
         min: 0,
-        max: 70,
+        max: 30,
       },
       title: {
         text: "Projections vs Actuals",

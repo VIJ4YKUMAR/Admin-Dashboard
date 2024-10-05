@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Stack, Grid } from "@mui/material";
+import { Typography, Stack, Grid, Box } from "@mui/material";
 import Ecommerce from "../Ecommerce/Ecommerce";
 import Barchart from "../BarChart/Barcharts";
 import Linechart from "../Linechart/Linecharts";
@@ -11,26 +11,28 @@ import Layout from "../Layout/Layout";
 const HomePage = () => {
   return (
     <Layout>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-          <Ecommerce />
+      <Box>
+        <Grid container spacing={3} justifyContent="center">
+          <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+            <Ecommerce />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+            <Barchart />
+          </Grid>
+          <Grid item xs={12} md={9} lg={5} xl={5}>
+            <Linechart />
+          </Grid>
+          <Grid item xs={12} md={3} lg={3} xl={3}>
+            <RevenueMap />
+          </Grid>
+          <Grid item xs={12} md={8} lg={5} xl={5}>
+            <TopSellingProducts />
+          </Grid>
+          <Grid item xs={12} md={4} lg={3} xl={3}>
+            <TotalSaleChart />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-          <Barchart />
-        </Grid>
-        <Grid item xs={12} md={9} lg={9} xl={9}>
-          <Linechart />
-        </Grid>
-        <Grid item xs={12} md={3} lg={3} xl={3}>
-          <RevenueMap />
-        </Grid>
-        <Grid item xs={12} md={9} lg={9} xl={9}>
-          <TopSellingProducts />
-        </Grid>
-        <Grid item xs={12} md={3} lg={3} xl={3}>
-          <TotalSaleChart />
-        </Grid>
-      </Grid>
+      </Box>
     </Layout>
   )
 };

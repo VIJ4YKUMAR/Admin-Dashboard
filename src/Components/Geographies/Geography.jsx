@@ -1,5 +1,6 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import "../Geographies/geography.css";
 import { Typography, useTheme } from "@mui/material";
@@ -30,7 +31,7 @@ const revenueData = [
 const ProgressBar = ({ item }) => {
 
   return (
-    <Stack width={160}>
+    <Stack>
       <Stack direction="row" justifyContent="space-between">
         <Typography color="text.primary">{item.place}</Typography>
         <Typography color="text.primary">{item.revenue}K</Typography>
@@ -67,13 +68,13 @@ const RevenueMap = () => {
           <circle r={8} fill="#000" />
         </Marker>
       </ComposableMap>
-      <Stack gap={1} alignItems="center">
-        {
-          revenueData.map((data) => (
-            <ProgressBar key={data.place} item={data} />
-          ))
-        }
-      </Stack>
+      <Grid container spacing={2} justifyContent="center">
+        {revenueData.map((data) => (
+          <Grid item xs={6} sm={5} md={12} lg={12} key={data.place}>
+            <ProgressBar item={data} />
+          </Grid>
+        ))}
+      </Grid>
     </Stack>
   );
 };

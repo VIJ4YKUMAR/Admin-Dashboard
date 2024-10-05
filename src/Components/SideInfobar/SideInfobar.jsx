@@ -8,7 +8,7 @@ import ContactsList from "../ContactsList/ContactsList";
 
 const SideInfobar = () => {
   return (
-    <Stack gap={2} justifyContent="center">
+    <Stack gap={2} padding={2} justifyContent="center">
       <Stack textAlign="left" gap={2}>
         <Typography color="text.primary">Notifications</Typography>
         <NotificationList />

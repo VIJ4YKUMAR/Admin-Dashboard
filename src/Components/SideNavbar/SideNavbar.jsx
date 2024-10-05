@@ -22,7 +22,7 @@ const SideNavbar = () => {
   const theme = useTheme();
 
   return (
-    <Stack className="side-bar" gap={4}>
+    <Stack className="side-bar" gap={4} padding={2}>
       <UserCard userImage={ByeWind} userName="ByeWind" />
       <Stack>
         <Stack gap={1}>

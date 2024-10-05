@@ -45,12 +45,13 @@ const Ecommerce = () => {
       < Grid
         maxWidth={600}
         container
-        spacing={5}
+        spacing={4}
         wrap="wrap"
+        alignSelf="center"
       >
         {
           ecommerceData.map((item) => (
-            <Grid item xs={6} sm={6} md={4} lg={6} key={item.infoName}>
+            <Grid item xs={6} sm={6} md={6} lg={6} xl={6} key={item.infoName}>
               {item.infoName === "Orders" ?
                 <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to="/orders">
                   <InfoCards item={item} />
