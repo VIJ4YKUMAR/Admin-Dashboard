@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, forwardRef, useState, useCallback } from 'react';
+import React, { useImperativeHandle, forwardRef, useState, useCallback, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
@@ -21,7 +21,7 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import HistoryIcon from '@mui/icons-material/History';
 import Stack from '@mui/material/Stack';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import { useTheme } from '@mui/material';
+import { Grid, useTheme } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import SearchBar from '../SearchBar/SearchBar';
 import SideNavbar from '../SideNavbar/SideNavbar';
@@ -39,7 +39,7 @@ const ResponsiveAppBar = ({ themeRef }) => {
 
   const [mode, setMode] = useState("dark");
 
-  const [navOpen, setNavOpen] = React.useState(false);
+  const [navOpen, setNavOpen] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
 
   const toggleNavDrawer = (newOpen) => () => {
@@ -69,47 +69,51 @@ const ResponsiveAppBar = ({ themeRef }) => {
   }), [mode]);
 
   return (
-    <AppBar sx={{ background: theme.palette.background.default }} sx={{ boxShadow: "none" }} className="appbar-container">
-      <Toolbar sx={{ background: theme.palette.background.default }} className="appbar" disableGutters>
-        <Stack direction="row">
-          <Stack direction="row" gap={3} paddingLeft={2}>
-            <Link onClick={(event) => { handleLinkClick(event); toggleNavDrawer(true)(); }}>
-              <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
-            </Link>
-            <Drawer anchor="left" open={navOpen} onClose={toggleNavDrawer(false)}>
-              <SideNavbar />
-            </Drawer>
-            <Link>
-              <StarBorderOutlinedIcon style={{ color: theme.palette.text.primary }} />
-            </Link>
-            <Breadcrumbs>
-              <Link style={{ color: theme.palette.text.primary }} underline="none" href="/">
-                Dashboards
-              </Link>
-              <Typography color="textPrimary">Defaults</Typography>
-            </Breadcrumbs>
-          </Stack>
-          <Stack direction="row" gap={3} paddingRight={18}>
-            <SearchBar inNavbar />
-            <Link>
-              <LightModeIcon style={{ color: theme.palette.text.primary }} onClick={toggleMode} />
-            </Link>
-            <Link>
-              <HistoryIcon style={{ color: theme.palette.text.primary }} />
-            </Link>
-            <Link>
-              <NotificationsNoneOutlinedIcon style={{ color: theme.palette.text.primary }} />
-            </Link>
-            <Link onClick={(event) => { handleLinkClick(event); toggleInfoDrawer(true)(); }}>
-              <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
-            </Link>
-            <Drawer anchor="right" open={infoOpen} onClose={toggleInfoDrawer(false)}>
-              <SideInfobar />
-            </Drawer>
-          </Stack>
-        </Stack>
-      </Toolbar>
-    </AppBar >
+    <Grid container>
+      <Grid item lg={8}>
+        <AppBar sx={{ background: theme.palette.background.default }} sx={{ boxShadow: "none" }} className="appbar-container">
+          <Toolbar sx={{ background: theme.palette.background.default }} className="appbar" disableGutters>
+            <Stack direction="row" gap={8}>
+              <Stack direction="row" gap={2} paddingLeft={2}>
+                <Link onClick={(event) => { handleLinkClick(event); toggleNavDrawer(true)(); }}>
+                  <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
+                </Link>
+                <Drawer anchor="left" open={navOpen} onClose={toggleNavDrawer(false)}>
+                  <SideNavbar />
+                </Drawer>
+                <Link>
+                  <StarBorderOutlinedIcon style={{ color: theme.palette.text.primary }} />
+                </Link>
+                <Breadcrumbs>
+                  <Link style={{ color: theme.palette.text.primary }} underline="none" href="/">
+                    Dashboards
+                  </Link>
+                  <Typography color="textPrimary">Defaults</Typography>
+                </Breadcrumbs>
+              </Stack>
+              <Stack direction="row" gap={2} >
+                <SearchBar inNavbar />
+                <Link>
+                  <LightModeIcon style={{ color: theme.palette.text.primary }} onClick={toggleMode} />
+                </Link>
+                <Link>
+                  <HistoryIcon style={{ color: theme.palette.text.primary }} />
+                </Link>
+                <Link>
+                  <NotificationsNoneOutlinedIcon style={{ color: theme.palette.text.primary }} />
+                </Link>
+                <Link onClick={(event) => { handleLinkClick(event); toggleInfoDrawer(true)(); }}>
+                  <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
+                </Link>
+                <Drawer anchor="right" open={infoOpen} onClose={toggleInfoDrawer(false)}>
+                  <SideInfobar />
+                </Drawer>
+              </Stack>
+            </Stack>
+          </Toolbar>
+        </AppBar >
+      </Grid>
+    </Grid>
   );
 };
 

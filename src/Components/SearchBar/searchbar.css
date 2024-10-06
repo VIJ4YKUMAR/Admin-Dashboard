@@ -2,6 +2,7 @@
   border: 1.5px solid rgb(213, 213, 213);
   border-radius: 8px;
   background-color: #1C1C1C0D;
+  max-height: 30px;
 }
 #searchInput {
   padding: 4px;

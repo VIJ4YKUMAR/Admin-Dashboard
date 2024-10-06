@@ -24,7 +24,7 @@ const Layout = ({ children, themeRef }) => {
               left: 0,
               height: '100vh',
               backgroundColor: 'background.paper',
-              zIndex: 1,
+              zIndex: 3,
               borderRight: "1px solid rgb(208, 207, 207)"
             }}
           >
@@ -34,11 +34,11 @@ const Layout = ({ children, themeRef }) => {
       </Grid>
 
       <Grid item>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ position: "fixed", zIndex: 1 }}>
           <ResponsiveAppBar themeRef={themeRef} />
-          <Box padding={1} marginTop={3}>
-            {children}
-          </Box>
+        </Box>
+        <Box padding={1} marginTop={3}>
+          {children}
         </Box>
       </Grid>
 
@@ -53,7 +53,7 @@ const Layout = ({ children, themeRef }) => {
               right: 0,
               height: '100vh',
               backgroundColor: 'background.paper',
-              zIndex: 1,
+              zIndex: 3,
               borderLeft: "1px solid rgb(208, 207, 207)"
             }}
           >

@@ -19,16 +19,16 @@ const HomePage = () => {
           <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
             <Barchart />
           </Grid>
-          <Grid item xs={12} md={9} lg={5} xl={5}>
+          <Grid item xs={12} md={9} lg={5} xl={6}>
             <Linechart />
           </Grid>
-          <Grid item xs={12} md={3} lg={3} xl={3}>
+          <Grid item xs={12} md={3} lg={3} xl={2}>
             <RevenueMap />
           </Grid>
-          <Grid item xs={12} md={8} lg={5} xl={5}>
+          <Grid item xs={12} md={8} lg={5} xl={6}>
             <TopSellingProducts />
           </Grid>
-          <Grid item xs={12} md={4} lg={3} xl={3}>
+          <Grid item xs={12} md={4} lg={3} xl={2}>
             <TotalSaleChart />
           </Grid>
         </Grid>
