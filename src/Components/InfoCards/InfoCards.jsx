@@ -27,7 +27,7 @@ const InfoCards = ({ item }) => {
         {infoName}
       </Typography>
       <Stack direction="row" gap={2}>
-        <Typography fontSize={{ xs: "18px", sm: "24px", lg: "16px" }} fontWeight="600">
+        <Typography fontSize={{ xs: "18px", sm: "18px", lg: "16px" }} fontWeight="600">
           {infoDetail}
         </Typography>
         <Typography bgcolor="none">

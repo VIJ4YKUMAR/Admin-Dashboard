@@ -71,10 +71,10 @@ const ResponsiveAppBar = ({ themeRef }) => {
   return (
     <Grid container>
       <Grid item lg={8}>
-        <AppBar sx={{ background: theme.palette.background.default }} sx={{ boxShadow: "none" }} className="appbar-container">
+        <AppBar sx={{ background: theme.palette.background.default, boxShadow: "none", padding: 1 }} className="appbar-container">
           <Toolbar sx={{ background: theme.palette.background.default }} className="appbar" disableGutters>
             <Stack direction="row" gap={8}>
-              <Stack direction="row" gap={2} paddingLeft={2}>
+              <Stack direction="row" gap={2}>
                 <Link onClick={(event) => { handleLinkClick(event); toggleNavDrawer(true)(); }}>
                   <ViewSidebarOutlinedIcon style={{ color: theme.palette.text.primary }} />
                 </Link>
