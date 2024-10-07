@@ -21,7 +21,7 @@ const Ecommerce = () => {
       textColor: "black"
     },
     {
-      bgColor: themeMode == "light" ? "#F7F9FB" : "black",
+      bgColor: themeMode == "light" ? "#F7F9FB" : "#404040",
       infoName: "Orders",
       infoDetail: "1219",
       infoGrowth: "-0.03%",
@@ -29,7 +29,7 @@ const Ecommerce = () => {
       textColor: ""
     },
     {
-      bgColor: themeMode == "light" ? "#F7F9FB" : "black",
+      bgColor: themeMode == "light" ? "#F7F9FB" : "#404040",
       infoName: "Revenue",
       infoDetail: "$695",
       infoGrowth: "+15.03%",
