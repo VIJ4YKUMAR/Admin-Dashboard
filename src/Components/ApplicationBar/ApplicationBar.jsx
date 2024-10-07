@@ -68,7 +68,7 @@ const ResponsiveAppBar = () => {
           <Toolbar sx={{ background: theme.palette.background.default }} className="appbar" disableGutters>
             <Stack direction="row" sx={{
               gap: {
-                xs: 17,
+                xs: 6,
                 sm: 10,
                 md: 28,
                 lg: 14,
@@ -86,10 +86,18 @@ const ResponsiveAppBar = () => {
                   <StarBorderOutlinedIcon style={{ color: theme.palette.text.primary }} />
                 </Link>
                 <Breadcrumbs>
-                  <Link style={{ color: theme.palette.text.primary }} underline="none" href="/">
+                  <Link className="breadcrumb" style={{
+                    color: theme.palette.text.primary, fontSize: {
+                      xs: "10px",
+                    }
+                  }} underline="none" href="/">
                     Dashboards
                   </Link>
-                  <Typography color="textPrimary">Defaults</Typography>
+                  <Typography sx={{
+                    fontSize: {
+                      xs: "10px",
+                    }
+                  }} color="textPrimary">Defaults</Typography>
                 </Breadcrumbs>
               </Stack>
               <Stack direction="row" gap={2} >

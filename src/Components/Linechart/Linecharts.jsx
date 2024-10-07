@@ -6,10 +6,11 @@ import "../Linechart/linecharts.css";
 const Linechart = () => {
   const chartRef = useRef(null);
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === "dark";
 
   const colorMapping = {
     "Current Week $58,211": "#A8C5DA",
-    "Previous Week $68,768": "#1C1C1C",
+    "Previous Week $68,768": isDarkMode ? "#C6C7F8" : "#1C1C1C",
   };
 
   const seriesData = [

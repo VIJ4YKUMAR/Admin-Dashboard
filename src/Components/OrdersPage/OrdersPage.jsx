@@ -9,7 +9,7 @@ const OrdersPage = () => {
 
   return (
     <Layout>
-      <Grid className="table-container" style={{ background: theme.palette.background.default }} container sx={{ marginBottom: "100px" }}>
+      <Grid className="table-container" style={{ background: theme.palette.background.default }} container sx={{ marginBottom: "520px" }}>
         <Grid item xs={12} >
           <OrderTable />
         </Grid>

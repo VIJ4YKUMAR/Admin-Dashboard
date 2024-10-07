@@ -16,3 +16,9 @@
 .css-h783dy-MuiPaper-root-MuiAppBar-root {
   --AppBar-background: none;
 }
+
+@media (max-width: 450px) {
+  .breadcrumb {
+    font-size: 10px;
+  }
+}

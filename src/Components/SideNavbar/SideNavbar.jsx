@@ -38,7 +38,7 @@ const SideNavbar = () => {
       </Stack>
       <Stack gap={4}>
         <Stack>
-          <Typography textAlign="left" color="#1C1C1C66">
+          <Typography color="text.primary" textAlign="left">
             Dashboards
           </Typography>
           {
@@ -48,7 +48,7 @@ const SideNavbar = () => {
           }
         </Stack>
         <Stack>
-          <Typography textAlign="left" color="#1C1C1C66">
+          <Typography color="text.primary" textAlign="left">
             Pages
           </Typography>
           {
