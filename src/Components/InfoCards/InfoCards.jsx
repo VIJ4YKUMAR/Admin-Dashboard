@@ -10,7 +10,7 @@ import "../InfoCards/infoCards.css";
 const InfoCards = ({ item }) => {
   const theme = useTheme();
 
-  const { bgColor, infoName, infoDetail, infoGrowth, hasRisen } = item;
+  const { bgColor, infoName, infoDetail, infoGrowth, hasRisen, textColor } = item;
 
   return (
     <Stack
@@ -23,14 +23,14 @@ const InfoCards = ({ item }) => {
       className="info-container"
       gap={1}
     >
-      <Typography fontSize={{ xs: "12px", sm: "14px", lg: "16px" }} fontWeight="600">
+      <Typography color={textColor || "text.primary"} fontSize={{ xs: "12px", sm: "14px", lg: "16px" }} fontWeight="600">
         {infoName}
       </Typography>
       <Stack direction="row" gap={2}>
-        <Typography fontSize={{ xs: "18px", sm: "18px", lg: "16px" }} fontWeight="600">
+        <Typography color={textColor || "text.primary"} fontSize={{ xs: "18px", sm: "18px", lg: "16px" }} fontWeight="600">
           {infoDetail}
         </Typography>
-        <Typography bgcolor="none">
+        <Typography color={textColor || "text.primary"} bgcolor="none">
           {infoGrowth}
           {hasRisen ? (
             <TrendingUpIcon

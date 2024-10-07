@@ -27,17 +27,18 @@ import SearchBar from '../SearchBar/SearchBar';
 import SideNavbar from '../SideNavbar/SideNavbar';
 import SideInfobar from '../SideInfobar/SideInfobar';
 import useWindowSize from '../../hooks/useWindowSize';
+import { ThemeContext } from "../../ThemeContext";
 
 import "../ApplicationBar/applicationbar.css";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = ({ themeRef }) => {
+const ResponsiveAppBar = () => {
   const theme = useTheme();
   const size = useWindowSize();
 
-  const [mode, setMode] = useState("dark");
+  const { toggleMode } = useContext(ThemeContext);
 
   const [navOpen, setNavOpen] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
@@ -47,10 +48,6 @@ const ResponsiveAppBar = ({ themeRef }) => {
       setNavOpen(newOpen);
     }
   };
-
-  const toggleMode = useCallback(() => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  }, []);
 
   const toggleInfoDrawer = (newOpen) => () => {
     if (size.width <= 1200) {
@@ -63,10 +60,6 @@ const ResponsiveAppBar = ({ themeRef }) => {
       event.preventDefault();
     }
   };
-
-  useImperativeHandle(themeRef, () => ({
-    mode,
-  }), [mode]);
 
   return (
     <Grid container>

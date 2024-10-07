@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ResponsiveAppBar from '../ApplicationBar/ApplicationBar';
 import SideNavbar from '../SideNavbar/SideNavbar';
 import SideInfobar from '../SideInfobar/SideInfobar';
@@ -6,7 +6,7 @@ import { Box, Grid, Stack, useTheme } from '@mui/material';
 
 import useWindowSize from "../../hooks/useWindowSize";
 
-const Layout = ({ children, themeRef }) => {
+const Layout = ({ children }) => {
   const theme = useTheme();
 
   const size = useWindowSize();
@@ -35,9 +35,9 @@ const Layout = ({ children, themeRef }) => {
 
       <Grid item>
         <Box sx={{ position: "fixed", zIndex: 1 }}>
-          <ResponsiveAppBar themeRef={themeRef} />
+          <ResponsiveAppBar />
         </Box>
-        <Box padding={1} marginTop={3}>
+        <Box padding={1} marginTop={3} bgcolor={theme.palette.background.default}>
           {children}
         </Box>
       </Grid>

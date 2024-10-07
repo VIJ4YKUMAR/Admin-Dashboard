@@ -265,10 +265,10 @@ const OrderTable = () => {
 
 	return (
 		<Box>
-			<Paper sx={{ mb: 2, boxShadow: 0 }}>
+			<Paper sx={{ mb: 2, boxShadow: 0, padding: 3 }}>
 				<Typography color="text.primary" className="table-title">Order List</Typography>
 				<TableToolBar />
-				<TableContainer>
+				<TableContainer className="table-container">
 					<Table>
 						<OrderTableHead
 							rowsSelected={selected.length}
