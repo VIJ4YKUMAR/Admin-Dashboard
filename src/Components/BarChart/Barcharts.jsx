@@ -95,7 +95,7 @@ const Barchart = () => {
     return () => {
       chart.destroy();
     };
-  }, []);
+  }, [theme]);
 
   return (
     <div style={{ background: theme.palette.background.secondary }} ref={chartRef} id="barchart"></div>
