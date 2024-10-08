@@ -7,10 +7,16 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import CloseIcon from "@mui/icons-material/Close";
+import KeyboardCommandKeyIcon from '@mui/icons-material/KeyboardCommandKey';
 
-const SearchBar = ({ inNavbar }) => {
+import "../SearchBar/searchbar.css";
+import { useTheme } from "@mui/material";
+
+const SearchBar = () => {
   const [expanded, setExpanded] = useState(false);
   const isMobile = useMediaQuery("(max-width:600px)");
+
+  const theme = useTheme();
 
   const handleExpand = () => {
     setExpanded(true);
@@ -59,10 +65,13 @@ const SearchBar = ({ inNavbar }) => {
           )}
         </>
       ) : (
-        <>
+        <Stack direction="row" alignItems="center" gap={1} id="searchInput">
           <SearchIcon className="searchglass" color="disabled" />
-          <Input id="searchInput" disableUnderline placeholder="Search" />
-        </>
+          <Input disableUnderline placeholder="Search" />
+          <Stack className="command-icon" direction="row" textAlign="center">
+            <KeyboardCommandKeyIcon sx={{ color: theme.palette.text.secondary }} fontSize="small" /> /
+          </Stack>
+        </Stack>
       )}
     </Stack>
   );
